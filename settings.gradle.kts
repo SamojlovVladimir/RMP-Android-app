@@ -23,3 +23,4 @@ dependencyResolutionManagement {
 rootProject.name = "Matule"
 
 include(":uikit")
+include(":network")
