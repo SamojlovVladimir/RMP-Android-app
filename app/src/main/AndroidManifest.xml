@@ -5,6 +5,14 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- Вход по отпечатку пальца на экране кода -->
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <!-- Локальные уведомления (Android 13+ спрашивает пользователя один раз) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Точные будильники для напоминаний: выдаются при установке, без запроса пользователю.
+         Android 12: SCHEDULE_EXACT_ALARM, Android 13+: USE_EXACT_ALARM -->
+    <uses-permission
+        android:name="android.permission.SCHEDULE_EXACT_ALARM"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 
     <!-- Камера нужна для фото проекта, но не обязательна для установки -->
     <uses-feature
@@ -82,11 +90,33 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
+        <!-- Просмотр PDF (политика конфиденциальности) -->
+        <activity
+            android:name=".presentation.document.PdfActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
         <!-- Витрина компонентов UIKit -->
         <activity
             android:name=".presentation.showcase.ShowcaseActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- Напоминания о неактивности (срабатывают по будильнику) -->
+        <receiver
+            android:name=".common.notifications.ReminderReceiver"
+            android:exported="false" />
+
+        <!-- Доступ приложения камеры к файлу, в который пишется фото проекта -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
     </application>
 

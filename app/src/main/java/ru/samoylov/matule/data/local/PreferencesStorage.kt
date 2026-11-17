@@ -3,6 +3,7 @@ package ru.samoylov.matule.data.local
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
+import ru.samoylov.matule.domain.model.Project
 import ru.samoylov.matule.domain.model.User
 import ru.samoylov.matule.network.TokenStore
 
@@ -10,8 +11,8 @@ import ru.samoylov.matule.network.TokenStore
  * Локальное хранилище на SharedPreferences.
  *
  * Отвечает за всё, что должно пережить перезапуск приложения:
- * токен и активная сессия, код быстрого входа, черновик профиля,
- * последний открытый экран и кэш главной страницы.
+ * токен и активная сессия, код быстрого входа, черновики профиля и проекта,
+ * последний открытый экран, данные для напоминаний и кэш главной страницы.
  *
  * @param context контекст приложения
  */
@@ -92,6 +93,56 @@ class PreferencesStorage(context: Context) : TokenStore {
         prefs.edit().remove(KEY_PROFILE_DRAFT).apply()
     }
 
+    // ===================== ЧЕРНОВИК ПРОЕКТА =====================
+
+    /**
+     * Сохраняет незаконченное заполнение экрана «Создание проекта».
+     * @param project черновик проекта (photoUrl — путь к файлу фото)
+     */
+    fun saveProjectDraft(project: Project) {
+        prefs.edit().putString(KEY_PROJECT_DRAFT, gson.toJson(project)).apply()
+    }
+
+    /** Возвращает черновик проекта или null. */
+    fun getProjectDraft(): Project? {
+        val json = prefs.getString(KEY_PROJECT_DRAFT, null) ?: return null
+        return runCatching { gson.fromJson(json, Project::class.java) }.getOrNull()
+    }
+
+    /** Удаляет черновик проекта. */
+    fun clearProjectDraft() {
+        prefs.edit().remove(KEY_PROJECT_DRAFT).apply()
+    }
+
+    // ===================== НАПОМИНАНИЯ =====================
+
+    /**
+     * Запоминает последний открытый проект для напоминания о неактивности.
+     * @param title название проекта
+     */
+    fun saveLastProject(title: String) {
+        prefs.edit().putString(KEY_LAST_PROJECT, title).apply()
+    }
+
+    /** Название последнего открытого проекта или null. */
+    fun getLastProject(): String? = prefs.getString(KEY_LAST_PROJECT, null)
+
+    /** Забывает последний открытый проект (напоминание о нём уже пришло). */
+    fun clearLastProject() {
+        prefs.edit().remove(KEY_LAST_PROJECT).apply()
+    }
+
+    /**
+     * Отмечает, приходило ли напоминание «давно не заходили» с последнего входа.
+     * @param sent true — уже приходило
+     */
+    fun setAppReminderSent(sent: Boolean) {
+        prefs.edit().putBoolean(KEY_APP_REMINDER_SENT, sent).apply()
+    }
+
+    /** Приходило ли напоминание с последнего входа в приложение. */
+    fun isAppReminderSent(): Boolean = prefs.getBoolean(KEY_APP_REMINDER_SENT, false)
+
     // ===================== ПОСЛЕДНИЙ ЭКРАН =====================
 
     /**
@@ -134,6 +185,9 @@ class PreferencesStorage(context: Context) : TokenStore {
         const val KEY_PIN = "pin_code"
         const val KEY_PROFILE_DRAFT = "profile_draft"
         const val KEY_LAST_SCREEN = "last_screen"
+        const val KEY_PROJECT_DRAFT = "project_draft"
+        const val KEY_LAST_PROJECT = "last_project"
+        const val KEY_APP_REMINDER_SENT = "app_reminder_sent"
         const val CACHE_PREFIX = "cache_"
     }
 }

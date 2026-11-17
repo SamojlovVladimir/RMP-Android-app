@@ -12,9 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import ru.samoylov.matule.R
 import ru.samoylov.matule.di.ServiceLocator
 import ru.samoylov.matule.domain.usecase.GetStartDestinationUseCase
-import ru.samoylov.matule.presentation.auth.AuthActivity
+import ru.samoylov.matule.presentation.common.LastScreenNavigator
 import ru.samoylov.matule.presentation.pin.PinActivity
-import ru.samoylov.matule.presentation.profile.CreateProfileActivity
 import ru.samoylov.matule.presentation.showcase.ShowcaseActivity
 
 /**
@@ -55,20 +54,17 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun navigate() {
-        val intent = when (ServiceLocator.startDestinationUseCase()) {
+        when (ServiceLocator.startDestinationUseCase()) {
             GetStartDestinationUseCase.Destination.PIN_LOGIN ->
-                PinActivity.createIntent(this, PinActivity.MODE_LOGIN)
+                startActivity(PinActivity.createIntent(this, PinActivity.MODE_LOGIN))
             GetStartDestinationUseCase.Destination.PIN_CREATE ->
-                PinActivity.createIntent(this, PinActivity.MODE_CREATE)
+                startActivity(PinActivity.createIntent(this, PinActivity.MODE_CREATE))
             GetStartDestinationUseCase.Destination.AUTH ->
-                // Регистрацию бросили на середине — возвращаем на «Создание профиля»
-                if (ServiceLocator.storage.getLastScreen() == "create_profile") {
-                    Intent(this, CreateProfileActivity::class.java)
-                } else {
-                    Intent(this, AuthActivity::class.java)
-                }
+                // Регистрацию бросили на середине — продолжаем с того же шага
+                startActivities(
+                    LastScreenNavigator.createAuthIntents(this, ServiceLocator.storage.getLastScreen())
+                )
         }
-        startActivity(intent)
         finish()
     }
 

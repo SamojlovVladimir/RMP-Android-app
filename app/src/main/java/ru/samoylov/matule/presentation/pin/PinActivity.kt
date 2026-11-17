@@ -9,7 +9,7 @@ import ru.samoylov.matule.R
 import ru.samoylov.matule.di.ServiceLocator
 import ru.samoylov.matule.presentation.common.BaseActivity
 import ru.samoylov.matule.presentation.common.BiometricAuth
-import ru.samoylov.matule.presentation.main.MainActivity
+import ru.samoylov.matule.presentation.common.LastScreenNavigator
 import ru.samoylov.matule.uikit.AppIcons
 import ru.samoylov.matule.uikit.AppPinPad
 
@@ -23,7 +23,9 @@ import ru.samoylov.matule.uikit.AppPinPad
  */
 class PinActivity : BaseActivity() {
 
-    override val screenName = "pin"
+    // Экран кода не запоминается: иначе при каждом запуске он затирал бы
+    // настоящий последний экран, на который нужно вернуться после входа
+    override val screenName = ""
 
     private val pinCodeUseCase = ServiceLocator.pinCodeUseCase
     private lateinit var pinPad: AppPinPad
@@ -58,7 +60,8 @@ class PinActivity : BaseActivity() {
             pinPad.showError()
             showMessage(error)
         } else {
-            openMain()
+            // Код создан сразу после регистрации или входа — открываем «Главную»
+            startActivities(LastScreenNavigator.createMainIntents(this, null))
         }
     }
 
@@ -74,10 +77,10 @@ class PinActivity : BaseActivity() {
         BiometricAuth.authenticate(this) { openMain() }
     }
 
+    /** После входа по коду возвращаемся на экран, открытый до перезапуска. */
     private fun openMain() {
-        val intent = Intent(this, MainActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)
+        val lastScreen = ServiceLocator.storage.getLastScreen()
+        startActivities(LastScreenNavigator.createMainIntents(this, lastScreen))
     }
 
     companion object {

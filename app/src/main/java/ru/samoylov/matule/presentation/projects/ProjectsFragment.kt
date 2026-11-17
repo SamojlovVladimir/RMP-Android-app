@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import ru.samoylov.matule.R
+import ru.samoylov.matule.common.notifications.ReminderScheduler
 import ru.samoylov.matule.domain.model.Project
 import ru.samoylov.matule.presentation.common.dp
 import ru.samoylov.matule.presentation.common.showMessage
@@ -21,6 +22,8 @@ import ru.samoylov.matule.uikit.AppIcons
 /**
  * Экран «Список проектов»: карточки проектов с кнопкой «Открыть»
  * и «+» в хэдере для создания нового проекта.
+ * Открытый проект запоминается: если в нём ничего не делать минуту,
+ * придёт напоминание.
  */
 class ProjectsFragment : Fragment(R.layout.fragment_projects) {
 
@@ -69,6 +72,7 @@ class ProjectsFragment : Fragment(R.layout.fragment_projects) {
 
     /** Открывает проект: BottomSheet со всеми полями. */
     private fun showDetails(project: Project) {
+        ReminderScheduler.onProjectOpened(requireContext(), project)
         val sheet = AppBottomSheet(requireContext())
         val content = LayoutInflater.from(requireContext()).inflate(R.layout.sheet_text, null)
         content.findViewById<TextView>(R.id.sheetTitle).text = project.title

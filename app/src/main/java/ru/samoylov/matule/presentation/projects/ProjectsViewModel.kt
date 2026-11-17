@@ -46,18 +46,29 @@ class ProjectsViewModel : ViewModel() {
 /**
  * Логика экрана «Создание проекта». Все поля обязательны:
  * кнопка «Подтвердить» активна, только когда всё заполнено и выбрано фото.
+ * Форма хранится черновиком и переживает перезапуск приложения.
  */
 class CreateProjectViewModel : ViewModel() {
 
     private val createProjectUseCase = ServiceLocator.createProjectUseCase
+    private val draftUseCase = ServiceLocator.projectDraftUseCase
 
     private val _state = MutableLiveData<UiState<Project>>(UiState.Idle)
 
     /** Состояние отправки проекта. */
     val state: LiveData<UiState<Project>> = _state
 
-    /** Выбрано ли фото (переживает поворот экрана). */
-    var hasPhoto = false
+    /** Путь к файлу выбранного фото, пустая строка — фото нет. */
+    var photoPath = ""
+
+    /** Возвращает сохранённый черновик или null. */
+    fun restoreDraft(): Project? = draftUseCase.restore()?.also { photoPath = it.photoUrl }
+
+    /**
+     * Сохраняет текущее состояние формы.
+     * @param project значения полей формы
+     */
+    fun saveDraft(project: Project) = draftUseCase.save(project)
 
     /**
      * Все ли поля заполнены.
@@ -67,7 +78,7 @@ class CreateProjectViewModel : ViewModel() {
         project.type.isNotBlank() && project.title.isNotBlank() &&
             project.startDate.length == DATE_LENGTH && project.endDate.length == DATE_LENGTH &&
             project.target.isNotBlank() && project.source.isNotBlank() &&
-            project.category.isNotBlank() && hasPhoto
+            project.category.isNotBlank() && project.photoUrl.isNotBlank()
 
     /**
      * Отправляет проект на сервер.
@@ -77,7 +88,10 @@ class CreateProjectViewModel : ViewModel() {
         _state.value = UiState.Loading
         viewModelScope.launch {
             _state.value = when (val result = createProjectUseCase(project)) {
-                is DomainResult.Success -> UiState.Success(result.data)
+                is DomainResult.Success -> {
+                    draftUseCase.clear()
+                    UiState.Success(result.data)
+                }
                 is DomainResult.Error -> UiState.Error(result.message, result.isAuthError)
             }
         }
