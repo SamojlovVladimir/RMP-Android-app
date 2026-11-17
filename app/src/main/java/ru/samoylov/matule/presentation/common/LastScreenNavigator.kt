@@ -60,14 +60,19 @@ object LastScreenNavigator {
 
     /**
      * Экраны для неавторизованного пользователя: незаконченная регистрация
-     * продолжается с того же шага.
+     * продолжается с того же шага. Под экранами регистрации
+     * лежит экран входа, чтобы «назад» возвращал на него, а не закрывал приложение.
      * @param context контекст
      * @param lastScreen сохранённое имя последнего экрана
      */
     fun createAuthIntents(context: Context, lastScreen: String?): Array<Intent> {
         val intents = when (lastScreen) {
-            SCREEN_CREATE_PROFILE -> arrayOf(Intent(context, CreateProfileActivity::class.java))
+            SCREEN_CREATE_PROFILE -> arrayOf(
+                Intent(context, AuthActivity::class.java),
+                Intent(context, CreateProfileActivity::class.java)
+            )
             SCREEN_CREATE_PASSWORD -> arrayOf(
+                Intent(context, AuthActivity::class.java),
                 Intent(context, CreateProfileActivity::class.java),
                 Intent(context, CreatePasswordActivity::class.java)
             )
