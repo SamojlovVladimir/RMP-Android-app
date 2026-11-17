@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/labelText"
+        style="@style/Text.Caption.Regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/inputBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:addStatesFromChildren="true"
+        android:background="@drawable/bg_input">
+
+        <EditText
+            android:id="@+id/inputField"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/placeholder"
+            android:textCursorDrawable="@null"
+            android:textSize="15sp" />
+
+        <ru.samoylov.matule.uikit.AppIcon
+            android:id="@+id/togglePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="14dp"
+            android:textColor="@color/description"
+            android:visibility="gone"
+            app:iconName="eye_off"
+            app:iconSize="20dp" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/errorText"
+        style="@style/Text.Caption.Regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/error"
+        android:visibility="gone" />
+
+</merge>

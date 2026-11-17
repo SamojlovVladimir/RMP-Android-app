@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AppButton">
+        <!-- Вариант оформления кнопки -->
+        <attr name="buttonVariant" format="enum">
+            <enum name="primary" value="0" />
+            <enum name="outline" value="1" />
+            <enum name="neutral" value="2" />
+        </attr>
+        <!-- Размер кнопки -->
+        <attr name="buttonSize" format="enum">
+            <enum name="big" value="0" />
+            <enum name="small" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="AppInput">
+        <!-- Подпись над полем -->
+        <attr name="inputLabel" format="string" />
+        <!-- Подсказка внутри поля -->
+        <attr name="inputHint" format="string" />
+        <!-- Тип вводимых данных -->
+        <attr name="inputFieldType" format="enum">
+            <enum name="text" value="0" />
+            <enum name="password" value="1" />
+            <enum name="email" value="2" />
+            <enum name="number" value="3" />
+            <enum name="date" value="4" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="AppSelect">
+        <!-- Подпись над полем выбора -->
+        <attr name="selectLabel" format="string" />
+        <!-- Текст-заглушка, пока ничего не выбрано -->
+        <attr name="selectPlaceholder" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="AppHeader">
+        <!-- Заголовок хэдера -->
+        <attr name="headerTitle" format="string" />
+        <!-- true — крупный заголовок слева под строкой кнопок -->
+        <attr name="headerLarge" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AppChip">
+        <!-- Текст чипса -->
+        <attr name="chipText" format="string" />
+        <!-- Активен ли чипс изначально -->
+        <attr name="chipSelected" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AppIcon">
+        <!-- Имя иконки из шрифта: back, search, plus, close, trash, cart... -->
+        <attr name="iconName" format="string" />
+        <!-- Размер иконки, по умолчанию 24dp -->
+        <attr name="iconSize" format="dimension" />
+    </declare-styleable>
+
+</resources>

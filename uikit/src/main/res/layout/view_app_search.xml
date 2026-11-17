@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ru.samoylov.matule.uikit.AppIcon
+        android:id="@+id/searchIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/description"
+        app:iconName="search"
+        app:iconSize="20dp" />
+
+    <EditText
+        android:id="@+id/searchField"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:imeOptions="actionSearch"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/placeholder"
+        android:textCursorDrawable="@null"
+        android:textSize="15sp" />
+
+    <ru.samoylov.matule.uikit.AppIcon
+        android:id="@+id/clearIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/description"
+        android:visibility="gone"
+        app:iconName="close"
+        app:iconSize="20dp" />
+
+</merge>
