@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Витрина библиотеки UIKit: все компоненты во всех состояниях (Модуль Б, спринт 1) -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="48dp">
+
+        <TextView
+            style="@style/Text.Title1.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="UI Kit" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Типографика" />
+
+        <TextView
+            style="@style/Text.Title1.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Title 1 - Semibold" />
+
+        <TextView
+            style="@style/Text.Title1.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Title 1 - ExtraBold" />
+
+        <TextView
+            style="@style/Text.Title2.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Title 2 - Regular" />
+
+        <TextView
+            style="@style/Text.Title2.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Title 2 - Semibold" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Title 2 - ExtraBold" />
+
+        <TextView
+            style="@style/Text.Title3.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Title 3 - Regular" />
+
+        <TextView
+            style="@style/Text.Title3.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Title 3 - Medium" />
+
+        <TextView
+            style="@style/Text.Title3.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Title 3 - Semibold" />
+
+        <TextView
+            style="@style/Text.Headline.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Headline - Regular" />
+
+        <TextView
+            style="@style/Text.Headline.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Headline - Medium" />
+
+        <TextView
+            style="@style/Text.Body.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Text - Regular" />
+
+        <TextView
+            style="@style/Text.Body.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Text - Medium" />
+
+        <TextView
+            style="@style/Text.Caption.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Caption - Regular" />
+
+        <TextView
+            style="@style/Text.Caption.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Caption - Semibold" />
+
+        <TextView
+            style="@style/Text.Caption2.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Caption 2 - Regular" />
+
+        <TextView
+            style="@style/Text.Caption2.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Caption 2 - Bold" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Цвета" />
+
+        <LinearLayout
+            android:id="@+id/colorsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Иконки (шрифт uikit_icons.ttf)" />
+
+        <LinearLayout
+            android:id="@+id/iconsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Инпуты" />
+
+        <TextView
+            style="@style/Text.Caption.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Обычное" />
+
+        <ru.samoylov.matule.uikit.AppInput
+            android:id="@+id/inputEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:inputHint="Введите имя" />
+
+        <TextView
+            style="@style/Text.Caption.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Заполненное" />
+
+        <ru.samoylov.matule.uikit.AppInput
+            android:id="@+id/inputFilled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:inputHint="Введите имя" />
+
+        <TextView
+            style="@style/Text.Caption.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="С подписью (нажмите — фокус)" />
+
+        <ru.samoylov.matule.uikit.AppInput
+            android:id="@+id/inputLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:inputHint="Введите имя"
+            app:inputLabel="Имя" />
+
+        <TextView
+            style="@style/Text.Caption.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Ошибка" />
+
+        <ru.samoylov.matule.uikit.AppInput
+            android:id="@+id/inputError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:inputHint="Имя" />
+
+        <TextView
+            style="@style/Text.Caption.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Disabled" />
+
+        <ru.samoylov.matule.uikit.AppInput
+            android:id="@+id/inputDisabled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:inputHint="Введите имя"
+            app:inputLabel="Имя" />
+
+        <TextView
+            style="@style/Text.Caption.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Пароль" />
+
+        <ru.samoylov.matule.uikit.AppInput
+            android:id="@+id/inputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:inputFieldType="password" />
+
+        <TextView
+            style="@style/Text.Caption.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Дата" />
+
+        <ru.samoylov.matule.uikit.AppInput
+            android:id="@+id/inputDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:inputFieldType="date"
+            app:inputHint="--.--.----" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Селекты" />
+
+        <ru.samoylov.matule.uikit.AppSelect
+            android:id="@+id/selectEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:selectPlaceholder="Пол" />
+
+        <ru.samoylov.matule.uikit.AppSelect
+            android:id="@+id/selectValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:selectPlaceholder="Пол" />
+
+        <ru.samoylov.matule.uikit.AppSelect
+            android:id="@+id/selectEmoji"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:selectPlaceholder="Выберите тип" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Поиск" />
+
+        <ru.samoylov.matule.uikit.AppSearch
+            android:id="@+id/searchDemo"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Кнопки Big" />
+
+        <ru.samoylov.matule.uikit.AppButton
+            android:id="@+id/btnPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Подтвердить" />
+
+        <ru.samoylov.matule.uikit.AppButton
+            android:id="@+id/btnDisabled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Подтвердить"
+            android:enabled="false" />
+
+        <ru.samoylov.matule.uikit.AppButton
+            android:id="@+id/btnOutline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Подтвердить"
+            app:buttonVariant="outline" />
+
+        <ru.samoylov.matule.uikit.AppButton
+            android:id="@+id/btnNeutral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Подтвердить"
+            app:buttonVariant="neutral" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Кнопки Small" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ru.samoylov.matule.uikit.AppButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Добавить"
+                app:buttonSize="small" />
+
+            <ru.samoylov.matule.uikit.AppButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Убрать"
+                app:buttonSize="small"
+                app:buttonVariant="outline" />
+
+            <ru.samoylov.matule.uikit.AppButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Добавить"
+                app:buttonSize="small"
+                android:enabled="false" />
+
+            <ru.samoylov.matule.uikit.AppButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Подтвер..."
+                app:buttonSize="small"
+                app:buttonVariant="neutral" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Cart" />
+
+        <ru.samoylov.matule.uikit.AppCartButton
+            android:id="@+id/cartButtonDemo"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Чипсы" />
+
+        <LinearLayout
+            android:id="@+id/chipsDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ru.samoylov.matule.uikit.AppChip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipSelected="true"
+                app:chipText="Популярные" />
+
+            <ru.samoylov.matule.uikit.AppChip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:chipText="Популярные" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Хэдер" />
+
+        <ru.samoylov.matule.uikit.AppHeader
+            android:id="@+id/headerLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerLarge="true"
+            app:headerTitle="Корзина" />
+
+        <ru.samoylov.matule.uikit.AppHeader
+            android:id="@+id/headerSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:headerTitle="Корзина" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Карточки" />
+
+        <LinearLayout
+            android:id="@+id/cardsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Модальные окна" />
+
+        <ru.samoylov.matule.uikit.AppButton
+            android:id="@+id/openSheetButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Открыть BottomSheet"
+            app:buttonVariant="neutral" />
+
+        <ru.samoylov.matule.uikit.AppButton
+            android:id="@+id/openLongSheetButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="BottomSheet с длинным текстом (скролл)"
+            app:buttonVariant="neutral" />
+
+        <ru.samoylov.matule.uikit.AppButton
+            android:id="@+id/openSnackButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Показать SnackBar"
+            app:buttonVariant="neutral" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="Tabbar" />
+
+        <LinearLayout
+            android:id="@+id/tabBarsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            style="@style/Text.Title2.ExtraBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="PIN-клавиатура" />
+
+        <ru.samoylov.matule.uikit.AppPinPad
+            android:id="@+id/pinPadDemo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+</ScrollView>

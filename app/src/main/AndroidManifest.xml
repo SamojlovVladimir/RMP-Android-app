@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Вход по отпечатку пальца на экране кода -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+
+    <!-- Камера нужна для фото проекта, но не обязательна для установки -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <queries>
+        <!-- Android 11+: разрешаем найти приложение камеры -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".MatuleApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Matule"
+        android:usesCleartextTraffic="true">
+
+        <!-- Заставка. Точка входа в приложение. -->
+        <activity
+            android:name=".presentation.splash.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Вход и регистрация -->
+        <activity
+            android:name=".presentation.auth.AuthActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Создание профиля -->
+        <activity
+            android:name=".presentation.profile.CreateProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Создание пароля профиля -->
+        <activity
+            android:name=".presentation.auth.CreatePasswordActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Вход по коду и создание кода -->
+        <activity
+            android:name=".presentation.pin.PinActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Основной экран с вкладками -->
+        <activity
+            android:name=".presentation.main.MainActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Корзина -->
+        <activity
+            android:name=".presentation.cart.CartActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Витрина компонентов UIKit -->
+        <activity
+            android:name=".presentation.showcase.ShowcaseActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+    </application>
+
+</manifest>
