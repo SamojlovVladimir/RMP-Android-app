@@ -10,12 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import ru.samoylov.matule.R
 import ru.samoylov.matule.presentation.auth.AuthActivity
 import ru.samoylov.matule.presentation.common.UiState
+import ru.samoylov.matule.presentation.document.PdfActivity
 import ru.samoylov.matule.presentation.common.showMessage
 import ru.samoylov.matule.uikit.AppBottomSheet
 
 /**
  * Экран «Профиль»: имя и почта, «Мои заказы», переключатель уведомлений,
- * политика конфиденциальности, пользовательское соглашение и выход.
+ * политика конфиденциальности (PDF), пользовательское соглашение и выход.
  */
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
@@ -32,7 +33,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             showMessage("Здесь появится история ваших заказов")
         }
         view.findViewById<View>(R.id.privacyText).setOnClickListener {
-            showDocument(getString(R.string.privacy_title), getString(R.string.privacy_text))
+            startActivity(PdfActivity.createPrivacyIntent(requireContext()))
         }
         view.findViewById<View>(R.id.agreementText).setOnClickListener {
             showDocument(getString(R.string.agreement_title), getString(R.string.agreement_text))

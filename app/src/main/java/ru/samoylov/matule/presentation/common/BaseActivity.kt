@@ -3,6 +3,7 @@ package ru.samoylov.matule.presentation.common
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -11,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import ru.samoylov.matule.common.notifications.ReminderScheduler
 import ru.samoylov.matule.di.ServiceLocator
 import ru.samoylov.matule.uikit.AppSnackBar
 
@@ -19,11 +21,15 @@ import ru.samoylov.matule.uikit.AppSnackBar
  * - отступы от статус-бара, навигации и клавиатуры (Android 15+ рисует
  *   приложение под системными панелями);
  * - показ уведомления AppSnackBar с крестиком (ошибки сервера и сети);
- * - запоминание последнего открытого экрана.
+ * - запоминание последнего открытого экрана;
+ * - учёт касаний экрана для напоминания о неактивности в проекте.
  */
 abstract class BaseActivity : AppCompatActivity() {
 
-    /** Имя экрана, под которым он сохраняется в хранилище. */
+    /**
+     * Имя экрана, под которым он сохраняется как последний открытый
+     * (см. LastScreenNavigator). Пустая строка — экран не запоминается.
+     */
     abstract val screenName: String
 
     private var snackBar: AppSnackBar? = null
@@ -51,7 +57,12 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        ServiceLocator.storage.saveLastScreen(screenName)
+        if (screenName.isNotEmpty()) ServiceLocator.storage.saveLastScreen(screenName)
+    }
+
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) ReminderScheduler.onUserActivity(this)
+        return super.dispatchTouchEvent(event)
     }
 
     /**

@@ -160,4 +160,16 @@ interface ProjectRepository {
      * @param project заполненные поля проекта
      */
     suspend fun createProject(project: Project): DomainResult<Project>
+
+    /**
+     * Сохраняет черновик экрана «Создание проекта».
+     * @param project значения полей формы
+     */
+    fun saveDraft(project: Project)
+
+    /** Возвращает черновик проекта или null. */
+    fun getDraft(): Project?
+
+    /** Удаляет черновик проекта. */
+    fun clearDraft()
 }

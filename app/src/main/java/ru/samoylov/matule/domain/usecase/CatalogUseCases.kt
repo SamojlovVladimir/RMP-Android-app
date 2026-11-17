@@ -187,3 +187,19 @@ class CreateProjectUseCase(private val repository: ProjectRepository) {
         return repository.createProject(project)
     }
 }
+
+/**
+ * Черновик экрана «Создание проекта»: введённое переживает перезапуск приложения.
+ * @param repository репозиторий проектов
+ */
+class ProjectDraftUseCase(private val repository: ProjectRepository) {
+
+    /** @param project текущее состояние формы */
+    fun save(project: Project) = repository.saveDraft(project)
+
+    /** Возвращает сохранённый черновик или null. */
+    fun restore(): Project? = repository.getDraft()
+
+    /** Удаляет черновик после создания проекта. */
+    fun clear() = repository.clearDraft()
+}

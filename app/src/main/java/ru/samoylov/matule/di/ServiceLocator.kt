@@ -2,6 +2,7 @@ package ru.samoylov.matule.di
 
 import android.content.Context
 import ru.samoylov.matule.data.local.HomeCache
+import ru.samoylov.matule.data.local.PhotoStorage
 import ru.samoylov.matule.data.local.PreferencesStorage
 import ru.samoylov.matule.data.repository.AuthRepositoryImpl
 import ru.samoylov.matule.data.repository.CartRepositoryImpl
@@ -27,6 +28,7 @@ import ru.samoylov.matule.domain.usecase.LogoutUseCase
 import ru.samoylov.matule.domain.usecase.ManageCartUseCase
 import ru.samoylov.matule.domain.usecase.PinCodeUseCase
 import ru.samoylov.matule.domain.usecase.ProfileDraftUseCase
+import ru.samoylov.matule.domain.usecase.ProjectDraftUseCase
 import ru.samoylov.matule.domain.usecase.RegisterUseCase
 import ru.samoylov.matule.domain.usecase.SaveProfileUseCase
 import ru.samoylov.matule.domain.usecase.SearchProductsUseCase
@@ -67,6 +69,9 @@ object ServiceLocator {
 
     private val homeCache: HomeCache by lazy { HomeCache(storage) }
 
+    /** Файлы фотографий проектов */
+    val photoStorage: PhotoStorage by lazy { PhotoStorage(appContext) }
+
     /** Сетевой слой отдаётся как абстракция, а не как конкретная реализация. */
     private val api: MatuleApiService by lazy {
         if (USE_FAKE_API) {
@@ -86,7 +91,7 @@ object ServiceLocator {
     private val profileRepository: ProfileRepository by lazy { ProfileRepositoryImpl(api, storage) }
     private val catalogRepository: CatalogRepository by lazy { CatalogRepositoryImpl(api, homeCache) }
     private val cartRepository: CartRepository by lazy { CartRepositoryImpl(api) }
-    private val projectRepository: ProjectRepository by lazy { ProjectRepositoryImpl(api) }
+    private val projectRepository: ProjectRepository by lazy { ProjectRepositoryImpl(api, storage) }
 
     // ===================== СЦЕНАРИИ =====================
 
@@ -115,4 +120,5 @@ object ServiceLocator {
 
     val getProjectsUseCase: GetProjectsUseCase get() = GetProjectsUseCase(projectRepository)
     val createProjectUseCase: CreateProjectUseCase get() = CreateProjectUseCase(projectRepository)
+    val projectDraftUseCase: ProjectDraftUseCase get() = ProjectDraftUseCase(projectRepository)
 }
