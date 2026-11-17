@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <ru.samoylov.matule.uikit.AppIcon
+            android:id="@+id/backIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="start|center_vertical"
+            android:background="@drawable/bg_back_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/description"
+            android:visibility="gone"
+            app:iconName="back"
+            app:iconSize="20dp" />
+
+        <TextView
+            android:id="@+id/titleText"
+            style="@style/Text.Title2.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:ellipsize="end"
+            android:maxLines="1" />
+
+        <ru.samoylov.matule.uikit.AppIcon
+            android:id="@+id/actionIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end|center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/input_icon"
+            android:visibility="gone"
+            app:iconSize="24dp" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/largeTitleText"
+        style="@style/Text.Title1.Semibold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
+
+</merge>

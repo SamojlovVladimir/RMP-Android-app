@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Палитра UI Kit. Значения сняты с заливок элементов макета. -->
+    <color name="accent">#1A6FEE</color>
+    <color name="accent_inactive">#C9D4FB</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="error">#FD3535</color>
+    <color name="success">#00B412</color>
+
+    <color name="input_bg">#F5F5F9</color>
+    <color name="input_stroke">#E1E3EA</color>
+    <color name="input_focus_stroke">#9DB5F6</color>
+    <color name="input_icon">#BCC5CF</color>
+
+    <color name="placeholder">#939396</color>
+    <color name="description">#7E7E9A</color>
+
+    <color name="card_stroke">#EFEFF4</color>
+    <color name="divider">#F1F1F1</color>
+    <color name="error_bg">#FFEBEB</color>
+    <color name="error_stroke">#FC6A6A</color>
+    <color name="pin_dot_empty">#7EAEF5</color>
+    <color name="snack_close">#8EB0F5</color>
+</resources>

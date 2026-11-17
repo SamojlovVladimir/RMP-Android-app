@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Типографика по макету UI Kit.
+         Атрибут parent у стилей пустой, чтобы AAPT не искал родителя по части имени до точки.
+         Semibold - жирный Roboto, Medium - sans-serif-medium, ExtraBold - sans-serif-black.
+         Размеры в sp, поэтому шрифт масштабируется вместе с системной настройкой. -->
+
+    <style name="Text.Title1.Semibold" parent="">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Title1.ExtraBold" parent="">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Title2.Regular" parent="">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Title2.Semibold" parent="">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Title2.ExtraBold" parent="">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Title3.Regular" parent="">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Title3.Medium" parent="">
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Title3.Semibold" parent="">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Headline.Regular" parent="">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Headline.Medium" parent="">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Body.Regular" parent="">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Body.Medium" parent="">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Caption.Regular" parent="">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/description</item>
+    </style>
+
+    <style name="Text.Caption.Semibold" parent="">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/placeholder</item>
+    </style>
+
+    <style name="Text.Caption2.Regular" parent="">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/description</item>
+    </style>
+
+    <style name="Text.Caption2.Bold" parent="">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- BOTTOM SHEET: белый фон, скруглены только верхние углы -->
+    <style name="AppBottomSheetTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppBottomSheetStyle</item>
+    </style>
+
+    <style name="AppBottomSheetStyle" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="backgroundTint">@color/white</item>
+        <item name="shapeAppearanceOverlay">@style/AppBottomSheetShape</item>
+    </style>
+
+    <style name="AppBottomSheetShape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">24dp</item>
+        <item name="cornerSizeTopRight">24dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+</resources>
